@@ -11,27 +11,52 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 
-<body onload="quiz()">
-    <div class="col-6 quiz">
-        <h1 id="ques"></h1>
-        <div class="option">
-            <input type="radio" name="option" id="opt1">
-            <label for="opt1" id="option1"></label>
+<body>
+    <div class="col-6 quiz" id="quiz">
+        <div class="header">
+            <div>
+                <h1>Javascript Quiz</h1>
+            </div>
+            <div class="timer">
+                <span class="text">
+                    Time:
+                </span>
+                <span class="time">
+                    <span id="min">10</span>
+                     : 
+                    <span id="sec">00</span>
+                </span>
+            </div>
         </div>
-        <div class="option">
-            <input type="radio" name="option" id="opt2">
-            <label for="opt2" id="option2"></label>
+        <div class="content">
+            <h1 id="ques"></h1>
+            <div class="option">
+                <input type="radio" name="option" id="ans1">
+                <label for="ans1" id="option1"></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="option" id="ans2">
+                <label for="ans2" id="option2"></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="option" id="ans3">
+                <label for="ans3" id="option3"></label>
+            </div>
+            <div class="option">
+                <input type="radio" name="option" id="ans4">
+                <label for="ans4" id="option4"></label>
+            </div>
         </div>
-        <div class="option">
-            <input type="radio" name="option" id="opt3">
-            <label for="opt3" id="option3"></label>
-        </div>
-        <div class="option">
-            <input type="radio" name="option" id="opt4">
-            <label for="opt4" id="option4"></label>
-        </div>
-        <div class="btn">
-            <button class="btn btn-primary" onclick="next()">Next</button>
+        <div class="footer">
+            <div class="questionNo">
+                Question 
+                <span id="currentNo"></span>
+                 of 
+                <span id="totalNo"></span>
+            </div>
+            <div class="btn">
+                <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn">Next</button>
+            </div>
         </div>
     </div>
 
