@@ -21,7 +21,7 @@ body{
     justify-content: space-between;
     align-items: center;
     box-shadow: 2px 2px 5px grey;
-    background: #9f3dffad;
+    background: #2684ff;
     /* padding: 10px;
     width: 40vw;
     height: 50vh;
@@ -48,7 +48,8 @@ body{
     justify-content: space-between;
     align-items: center;
     box-shadow: 2px 2px 5px grey;
-    background: #9f3dffad;
+    background: #2684ff;
+    /* background: #9f3dffad; */
 }
 .resultBox{
     padding: 10px;
@@ -60,7 +61,8 @@ body{
     justify-content: space-between;
     align-items: center;
     box-shadow: 2px 2px 5px grey;
-    background: #9f3dffad;
+    background: #2684ff;
+    /* background: #9f3dffad; */
     font-size: 26px;
 }
 .header{

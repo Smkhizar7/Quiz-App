@@ -104,6 +104,7 @@ function start() {
 function text(){
     mainbox.setAttribute('class','hidden');
     quizbox.setAttribute('class','col-6 quiz');
+    quiz();
 }
 function timer() {
     var sec = 00;
@@ -143,7 +144,7 @@ function submit() {
     else {
         greeting = "Sorry ";
     }
-    quizbox.innerHTML = '<div class="header"><div><h1>Result</h1></div></div><div class="result">' + greeting + '</br>Your score is ' + marks + '</div>';
+    quizbox.innerHTML = '<div class="header"><div><h1>Result</h1></div></div><div class="result">' + greeting + ' Mr ' + uName.value +'</br>Your score is ' + marks + '</div>';
 }
 function nextQuestion() {
     check();
@@ -162,4 +163,3 @@ function nextQuestion() {
         }
     }
 }
-quiz();
