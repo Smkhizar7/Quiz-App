@@ -1,42 +1,42 @@
 var questions = [
     {
         question: "Html stands for",
-        option1: "Hyper text Markup Language",
-        option2: "Hyper text Markup Language 1",
-        option3: "Hyper text Markup Language 2",
-        option4: "Hyper text Markup Language 3",
+        option1: "Hyper Text Markup Language",
+        option2: "High Text Markup Language",
+        option3: "High Text Machine Language",
+        option4: "Hyper Text Machine Language",
         ans: "ans1"
     },
     {
-        question: "Html stands for 1",
-        option1: "Hyper text Markup Language",
-        option2: "Hyper text Markup Language 1",
-        option3: "Hyper text Markup Language 2",
-        option4: "Hyper text Markup Language 3",
-        ans: "ans3"
-    },
-    {
-        question: "Html stands for 2",
-        option1: "Hyper text Markup Language",
-        option2: "Hyper text Markup Language 1",
-        option3: "Hyper text Markup Language 2",
-        option4: "Hyper text Markup Language 3",
+        question: "HTML is what type of language ?",
+        option1: "Scripting Language",
+        option2: "Markup Language",
+        option3: "Programming Language",
+        option4: "Network Protocol",
         ans: "ans2"
     },
     {
-        question: "Html stands for 3",
-        option1: "Hyper text Markup Language",
-        option2: "Hyper text Markup Language 1",
-        option3: "Hyper text Markup Language 2",
-        option4: "Hyper text Markup Language 3",
-        ans: "ans4"
+        question: "The year in which HTML was first proposed _______.",
+        option1: "1990",
+        option2: "1980",
+        option3: "2000",
+        option4: "1995",
+        ans: "ans1"
     },
     {
-        question: "Html stands for 4",
-        option1: "Hyper text Markup Language",
-        option2: "Hyper text Markup Language 1",
-        option3: "Hyper text Markup Language 2",
-        option4: "Hyper text Markup Language 3",
+        question: "Fundamental HTML Block is known as ___________.",
+        option1: "HTML Body",
+        option2: "HTML Tag",
+        option3: "HTML Attribute",
+        option4: "HTML Element",
+        ans: "ans2"
+    },
+    {
+        question: "Apart from &LeftAngleBracket;b&RightAngleBracket; tag, what other tag makes text bold ?",
+        option1: "&LeftAngleBracket;fat&RightAngleBracket;",
+        option2: "&LeftAngleBracket;strong&RightAngleBracket;",
+        option3: "&LeftAngleBracket;black&RightAngleBracket;",
+        option4: "&LeftAngleBracket;emp&RightAngleBracket;",
         ans: "ans2"
     }
 ]
@@ -146,12 +146,12 @@ function submit() {
         greeting = "Sorry ";
     }
     quizbox.innerHTML = '<div class="header"><div><h1>Result</h1></div></div><div class="result">' + greeting + ' Mr ' + uName.value +'</br>Your score is ' + marks + '</div>';
-    var obj = {
-        Name:uName.value,
-        Password:pass,
-        Score:marks
-    }
-    fire.push(obj);
+    // var obj = {
+    //     Name:uName.value,
+    //     Password:pass,
+    //     Score:marks
+    // }
+    // fire.push(obj);
 }
 function nextQuestion() {
     check();
@@ -178,14 +178,14 @@ function signup(){
     var pass = document.getElementById('password').value;
     var cpass = document.getElementById('cpassword').value;
     uName.value = fname + " " + lname;
-    var obj = {
-        First_Name:fname,
-        Last_Name:lname,
-        Date_Of_Birth:dob,
-        Email:email,
-        Password:pass,
-        Score:marks
-    }
-    fire.push(obj);
+    // var obj = {
+    //     First_Name:fname,
+    //     Last_Name:lname,
+    //     Date_Of_Birth:dob,
+    //     Email:email,
+    //     Password:pass,
+    //     Score:marks
+    // }
+    // fire.push(obj);
     mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
 }
