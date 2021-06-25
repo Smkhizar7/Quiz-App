@@ -55,6 +55,7 @@ var minutes = document.getElementById('min');
 var seconds = document.getElementById('sec');
 var quizbox = document.getElementById('quiz');
 var mainbox = document.getElementById('main');
+var fire = firebase.database().ref('users');
 totalquestions.innerHTML = questions.length;
 var questionCount = 0;
 var marks = 0;
@@ -145,6 +146,12 @@ function submit() {
         greeting = "Sorry ";
     }
     quizbox.innerHTML = '<div class="header"><div><h1>Result</h1></div></div><div class="result">' + greeting + ' Mr ' + uName.value +'</br>Your score is ' + marks + '</div>';
+    var obj = {
+        Name:uName.value,
+        Password:pass,
+        Score:marks
+    }
+    fire.push(obj);
 }
 function nextQuestion() {
     check();
@@ -162,4 +169,23 @@ function nextQuestion() {
             nextBtn.setAttribute('onclick', 'submit()');
         }
     }
+}
+function signup(){
+    var fname = document.getElementById('fname').value;
+    var lname = document.getElementById('lname').value;
+    var dob = document.getElementById('dob').value;
+    var email = document.getElementById('email').value;
+    var pass = document.getElementById('password').value;
+    var cpass = document.getElementById('cpassword').value;
+    uName.value = fname + " " + lname;
+    var obj = {
+        First_Name:fname,
+        Last_Name:lname,
+        Date_Of_Birth:dob,
+        Email:email,
+        Password:pass,
+        Score:marks
+    }
+    fire.push(obj);
+    mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
 }

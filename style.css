@@ -15,6 +15,7 @@ body{
     padding: 10px;
     margin: 20px auto;
     /* height: 70vh; */
+    border-radius: 20px;
     display:flex;
     flex-flow: wrap;
     flex-direction: column;
@@ -103,15 +104,19 @@ body{
     width: 98%;
     border: 1px solid var(--bs-dark);
     border-radius: 40px;
-    padding: 15px;
+    padding:  2px 5px;
     margin: 5px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 .alert{
     display: none;
 }
 .input{
     padding: 5px;
-    margin: 5px ;
+    margin: 5px;
 }
 .login{
     display: flex;
@@ -143,4 +148,52 @@ button#nextBtn {
 .option:hover {
     cursor: pointer;
     background: rgb(0 0 0 / 15%);
+}
+input{
+    margin: 0px 5px !important;
+}
+
+.option label{
+    width: 100%;
+    cursor: pointer;
+}
+.content-div {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid black;
+}
+
+div#signup {
+    /* border-top: 2px solid darkslategrey; */
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.input label {
+    margin: 5px;
+    font-weight: 500;
+}
+#signup .input {
+    /* width: 45%; */
+}
+button.btn-primary.btn {
+    display: block;
+    margin: 0px auto;
+}
+div#heading {border-top: 1px solid black;width: 100%;margin-top: 20px;text-align: center;/* padding-top: 10px; */}
+
+h2 {
+    padding-top: 10px;
+}
+div#heading1 {
+    display: block;
+    width: 100%;
+    text-align: center;
 }
