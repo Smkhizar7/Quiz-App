@@ -133,7 +133,7 @@ function submit() {
     quizbox.setAttribute('class', 'resultBox');
     var greeting;
     var uName = sessionStorage.getItem("Email");
-// console.log(uName);
+    sessionStorage.setItem("Score",marks);
     if (marks >= 3) {
         greeting = "Congratulations ";
     }
