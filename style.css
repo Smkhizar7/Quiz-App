@@ -4,6 +4,7 @@ body{
     display: flex;
     align-items: center !important;
     height: 100vh;
+    flex-direction: column;
 }
 .hidden{
     display: none;
@@ -180,9 +181,6 @@ div#signup {
     margin: 5px;
     font-weight: 500;
 }
-#signup .input {
-    /* width: 45%; */
-}
 button.btn-primary.btn {
     display: block;
     margin: 0px auto;
@@ -196,4 +194,9 @@ div#heading1 {
     display: block;
     width: 100%;
     text-align: center;
+}
+.nameDiv {
+    padding: 10px;
+    margin: 10px;
+    align-self: flex-end;
 }

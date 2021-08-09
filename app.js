@@ -41,8 +41,8 @@ var questions = [
     }
 ]
 var body = document.getElementById('body');
-let uName = document.getElementById('username');
-var pass = document.getElementById('password');
+var nameDiv = document.getElementById('nameDiv');
+var username = document.getElementById('name');
 var question = document.getElementById('ques');
 var option1 = document.getElementById('option1');
 var option2 = document.getElementById('option2');
@@ -59,52 +59,45 @@ var fire = firebase.database().ref('users');
 totalquestions.innerHTML = questions.length;
 var questionCount = 0;
 var marks = 0;
-// function login(){
-//     if(name === "smkhizar"){
-//         if(pass === 123){
-//             login.className += "";
-//         }
-//     }
-
-// }
-function check(){
+function check() {
     var opt1 = document.getElementById('ans1');
     var opt2 = document.getElementById('ans2');
     var opt3 = document.getElementById('ans3');
     var opt4 = document.getElementById('ans4');
-    console.log(questions[questionCount].ans);
-    switch(questions[questionCount].ans){
+    // console.log(questions[questionCount].ans);
+    switch (questions[questionCount].ans) {
         case "ans1":
-            console.log(opt1.checked);
-            if(opt1.checked){
+            // console.log(opt1.checked);
+            if (opt1.checked) {
                 marks++;
             }
             break;
         case "ans2":
-            console.log(opt2.checked);
-            if(opt2.checked){
+            // console.log(opt2.checked);
+            if (opt2.checked) {
                 marks++;
             }
-                break;
+            break;
         case "ans3":
-            console.log(opt3.checked);
-            if(opt3.checked){
+            // console.log(opt3.checked);
+            if (opt3.checked) {
                 marks++;
             }
             break;
         case "ans4":
-            if(opt4.checked){
+            if (opt4.checked) {
                 marks++;
             }
             break;
     }
 }
-function start() {
-    mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
-}
-function text(){
-    mainbox.setAttribute('class','hidden');
-    quizbox.setAttribute('class','col-6 quiz');
+// function start() {
+//     mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
+// }
+function text() {
+    mainbox.setAttribute('class', 'hidden');
+    quizbox.setAttribute('class', 'col-6 quiz');
+    // window.location.href="./quiz.html";
     quiz();
 }
 function timer() {
@@ -139,19 +132,21 @@ function submit() {
     check();
     quizbox.setAttribute('class', 'resultBox');
     var greeting;
+    var uName = sessionStorage.getItem("Email");
+// console.log(uName);
     if (marks >= 3) {
         greeting = "Congratulations ";
     }
     else {
         greeting = "Sorry ";
     }
-    quizbox.innerHTML = '<div class="header"><div><h1>Result</h1></div></div><div class="result">' + greeting + ' Mr ' + uName.value +'</br>Your score is ' + marks + '</div>';
-    // var obj = {
-    //     Name:uName.value,
-    //     Password:pass,
-    //     Score:marks
-    // }
-    // fire.push(obj);
+    quizbox.innerHTML = '<div class="header"><div><h1>Result</h1></div></div><div class="result">' + greeting + ' Mr ' + uName + '</br>Your score is ' + marks + '</div>';
+    var obj = {
+        Email:uName,
+        Score:marks
+    }
+    var key = fire.push().key;
+    fire.child(key).set(obj);
 }
 function nextQuestion() {
     check();
@@ -170,22 +165,51 @@ function nextQuestion() {
         }
     }
 }
-function signup(){
-    var fname = document.getElementById('fname').value;
-    var lname = document.getElementById('lname').value;
-    var dob = document.getElementById('dob').value;
-    var email = document.getElementById('email').value;
-    var pass = document.getElementById('password').value;
-    var cpass = document.getElementById('cpassword').value;
-    uName.value = fname + " " + lname;
-    // var obj = {
-    //     First_Name:fname,
-    //     Last_Name:lname,
-    //     Date_Of_Birth:dob,
-    //     Email:email,
-    //     Password:pass,
-    //     Score:marks
-    // }
-    // fire.push(obj);
+function signup() {
+    var email = document.getElementById('uemail');
+    var password = document.getElementById('upassword');
+    // var cpass = document.getElementById('cpassword').value;
+    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+        .then((userCredential) => {
+            // Signed in 
+            var user = userCredential.user;
+            console.log(user.email);
+            // ...
+        })
+        .catch((error) => {
+            // var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorMessage)
+            // ..
+        });
+    sessionStorage.setItem("Email",email.value);
+    sessionStorage.setItem("Password",password.value);
+    email.value = "";
+    password.value = "";
+    // window.location.href="./start.html";
+    // mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
+}
+function signin(){
+    var email = document.getElementById('iemail');
+    var password = document.getElementById('ipassword');
+    firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    console.log(user.email);
+    // ...
+  })
+  .catch((error) => {
+    // var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage)
+  });
+  sessionStorage.setItem("Email",email.value);
+    sessionStorage.setItem("Password",password.value);
+    email.value = "";
+    password.value = "";
+    nameDiv.setAttribute('class', 'nameDiv');
+    username.innerHTML = sessionStorage.getItem("Email");
     mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
+    // window.location.href="./start.html";
 }
