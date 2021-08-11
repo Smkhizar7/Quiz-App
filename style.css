@@ -5,6 +5,7 @@ body{
     align-items: center !important;
     height: 100vh;
     flex-direction: column;
+    justify-content: center;
 }
 .hidden{
     display: none;
@@ -152,6 +153,8 @@ button#nextBtn {
 }
 input{
     margin: 0px 5px !important;
+    width: 100%;
+    max-width: 250px;
 }
 
 .option label{
@@ -159,22 +162,25 @@ input{
     cursor: pointer;
 }
 .content-div {
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    border-top: 1px solid black;
+    border-top: 2px solid black;
+    align-content: center;
+    align-items: center;
 }
 
 div#signup {
     /* border-top: 2px solid darkslategrey; */
     margin: 10px 0px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+    align-content: center;
 }
 
 .input label {
@@ -185,7 +191,7 @@ button.btn-primary.btn {
     display: block;
     margin: 0px auto;
 }
-div#heading {border-top: 1px solid black;width: 100%;margin-top: 20px;text-align: center;/* padding-top: 10px; */}
+div#heading {/* border-top: 1px solid black; */width: 100%;margin-top: 20px;text-align: center;/* padding-top: 10px; */}
 
 h2 {
     padding-top: 10px;
