@@ -41,8 +41,9 @@ var questions = [
     }
 ]
 var body = document.getElementById('body');
-var nameDiv = document.getElementById('nameDiv');
+// var nameDiv = document.getElementById('nameDiv');
 var username = document.getElementById('name');
+username.innerHTML = localStorage.getItem("Email");
 var question = document.getElementById('ques');
 var option1 = document.getElementById('option1');
 var option2 = document.getElementById('option2');
@@ -94,12 +95,12 @@ function check() {
 // function start() {
 //     mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
 // }
-function text() {
-    mainbox.setAttribute('class', 'hidden');
-    quizbox.setAttribute('class', 'col-6 quiz');
-    // window.location.href="./quiz.html";
-    quiz();
-}
+// function text() {
+//     // mainbox.setAttribute('class', 'hidden');
+//     // quizbox.setAttribute('class', 'col-6 quiz');
+//     // window.location.href="./quiz.html";
+//     // quiz();
+// }
 function timer() {
     var sec = 00;
     var min = 10;
@@ -132,8 +133,8 @@ function submit() {
     check();
     quizbox.setAttribute('class', 'resultBox');
     var greeting;
-    var uName = sessionStorage.getItem("Email");
-    sessionStorage.setItem("Score",marks);
+    var uName = localStorage.getItem("Email");
+    localStorage.setItem("Score",marks);
     if (marks >= 3) {
         greeting = "Congratulations ";
     }
@@ -165,51 +166,52 @@ function nextQuestion() {
         }
     }
 }
-function signup() {
-    var email = document.getElementById('uemail');
-    var password = document.getElementById('upassword');
-    // var cpass = document.getElementById('cpassword').value;
-    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
-        .then((userCredential) => {
-            // Signed in 
-            var user = userCredential.user;
-            console.log(user.email);
-            // ...
-        })
-        .catch((error) => {
-            // var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorMessage)
-            // ..
-        });
-    sessionStorage.setItem("Email",email.value);
-    sessionStorage.setItem("Password",password.value);
-    email.value = "";
-    password.value = "";
-    // window.location.href="./start.html";
-    // mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
-}
-function signin(){
-    var email = document.getElementById('iemail');
-    var password = document.getElementById('ipassword');
-    firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-  .then((userCredential) => {
-    // Signed in
-    var user = userCredential.user;
-    console.log(user.email);
-    // ...
-  })
-  .catch((error) => {
-    // var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorMessage)
-  });
-  sessionStorage.setItem("Email",email.value);
-    sessionStorage.setItem("Password",password.value);
-    email.value = "";
-    password.value = "";
-    nameDiv.setAttribute('class', 'nameDiv');
-    username.innerHTML = sessionStorage.getItem("Email");
-    mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
-    // window.location.href="./start.html";
-}
+// function signup() {
+//     var email = document.getElementById('uemail');
+//     var password = document.getElementById('upassword');
+//     // var cpass = document.getElementById('cpassword').value;
+//     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+//         .then((userCredential) => {
+//             // Signed in 
+//             var user = userCredential.user;
+//             console.log(user.email);
+//             // ...
+//         })
+//         .catch((error) => {
+//             // var errorCode = error.code;
+//             var errorMessage = error.message;
+//             console.log(errorMessage)
+//             // ..
+//         });
+//     localStorage.setItem("Email",email.value);
+//     localStorage.setItem("Password",password.value);
+//     email.value = "";
+//     password.value = "";
+//     // window.location.href="./start.html";
+//     // mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
+// }
+// function signin(){
+//     var email = document.getElementById('iemail');
+//     var password = document.getElementById('ipassword');
+//     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+//   .then((userCredential) => {
+//     // Signed in
+//     var user = userCredential.user;
+//     console.log(user.email);
+//     localStorage.setItem("Email",email.value);
+//     localStorage.setItem("Password",password.value);
+//     nameDiv.setAttribute('class', 'nameDiv');
+//     username.innerHTML = localStorage.getItem("Email");
+//     // ...
+//   })
+//   .catch((error) => {
+//     // var errorCode = error.code;
+//     var errorMessage = error.message;
+//     console.log(errorMessage)
+//   });
+//     email.value = "";
+//     password.value = "";
+//     mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
+//     // window.location.href="./start.html";
+// }
+quiz();

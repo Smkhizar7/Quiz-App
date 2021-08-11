@@ -39,9 +39,9 @@
 </head>
 
 <body id="body">
-    <div id="nameDiv" class="hidden">
+    <!-- <div id="nameDiv" class="hidden">
         <h3 id="name">Sign In</h3>
-    </div>
+    </div> -->
     <div class="col-6 main" id="main">
         <h1>Quiz Application</h1>
         <div class="content-div">
@@ -60,13 +60,21 @@
                     <label for="ipassword">Password</label>
                     <input type="password" name="ipassword" id="ipassword">
                 </div>
-                <button class="btn-primary btn" onclick="signin()">Login</button>
+                <div>
+                    <button class="btn-primary btn" onclick="signin()">Login</button>
+                </div>
+                <div>
+                    <p>
+                        Do you have an account?<br>If No Please 
+                        <a href="./signup.html" id="link">Sign Up</a>
+                    </p>
+                </div>
             </div>
-            <div id="heading">
+            <!-- <div id="heading">
                 <h2>Sign Up Form</h2>
             </div>
             <div class="signup" id="signup">
-                <!-- <div class="input">
+                <div class="input">
                     <label for="fname">First Name:</label>
                     <input type="text" name="First_Name" id="fname" required>
                 </div>
@@ -77,7 +85,7 @@
                 <div class="input">
                     <label for="dob">Date of Birth:</label>
                     <input type="date" name="Date_Of_Birth" id="dob" required>
-                </div> -->
+                </div>
                 <div class="input">
                     <label for="uemail">Email:</label>
                     <input type="email" name="uemail" id="uemail" required>
@@ -86,18 +94,18 @@
                     <label for="upassword">Password</label>
                     <input type="password" name="uPassword" id="upassword" required>
                 </div>
-                <!-- <div class="input">
+                    <div class="input">
                     <label for="cpassword">Confirm Password</label>
                     <input type="password" name="Confirm_Password" id="cpassword" required>
-                </div> -->
-                <!-- <div class="alert alert-danger" role="alert" id="alert">
+                </div>
+                    <div class="alert alert-danger" role="alert" id="alert">
                     Password doesn't match!
-                </div> -->
+                </div>
                 <button class="btn-primary btn" onclick="signup()">Sign Up</button>
-            </div>
+            </div> -->
         </div>
     </div>
-    <div class="hidden" id="quiz">
+    <!-- <div class="hidden" id="quiz">
         <div class="header">
             <div>
                 <h1>Javascript Quiz</h1>
@@ -143,10 +151,10 @@
                 <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn">Next</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
-    <script src="app.js"></script>
+    <script src="./signin.js"></script>
 
 </body>
 

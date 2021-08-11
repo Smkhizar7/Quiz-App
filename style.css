@@ -206,3 +206,10 @@ div#heading1 {
     margin: 10px;
     align-self: flex-end;
 }
+a#link {
+    color: blue;
+}
+
+a#link:hover {
+    color: #0000ff9b;
+}
