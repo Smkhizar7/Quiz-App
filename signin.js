@@ -1,23 +1,28 @@
+let allusers = [];
+let users = localStorage.getItem("users");
+if(users !== null && users !== ""){
+    allusers = JSON.parse(users)
+}
 function signin() {
     var email = document.getElementById('iemail');
     var password = document.getElementById('ipassword');
+    let filteruser = allusers.filter(data => data.email === email.value && data.password === password.value)
+    if(filteruser.length){
+        localStorage.setItem("Logined User Email",email.value);
+        localStorage.setItem("Logined User Password",password.value);
+        console.log("Login successfully!");
+    }
+    else{
+        console.log("Incorrect email and password!")
+    }
     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
         .then((userCredential) => {
-            // Signed in
             var user = userCredential.user;
             console.log(user.email);
-            localStorage.setItem("Email", email.value);
-            localStorage.setItem("Password", password.value);
-            // nameDiv.setAttribute('class', 'nameDiv');
-            // username.innerHTML = localStorage.getItem("Email");
-            // ...
+            window.location.href = "./start.html";
         })
         .catch((error) => {
             var errorMessage = error.message;
             console.log(errorMessage)
         });
-    email.value = "";
-    password.value = "";
-    // mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
-    window.location.href = "./start.html";
 }

@@ -1,20 +1,26 @@
+let allusers = [];
+let users = localStorage.getItem("users");
+if (users !== null && users !== "") {
+    allusers = JSON.parse(users)
+}
 function signup() {
     var email = document.getElementById('uemail');
     var password = document.getElementById('upassword');
-    // var cpass = document.getElementById('cpassword').value;
+    let user = {
+        email: email.value,
+        password: password.value
+    }
+    allusers.push(user);
+    localStorage.setItem("users", JSON.stringify(allusers))
+    console.log("Sign Up Successfully!!!");
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
         .then((userCredential) => {
             var user = userCredential.user;
             console.log(user.email);
-            localStorage.setItem("Email", email.value);
-            localStorage.setItem("Password", password.value);
             window.location.href = "./index.html";
         })
         .catch((error) => {
             var errorMessage = error.message;
             console.log(errorMessage)
         });
-    email.value = "";
-    password.value = "";
-    // mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
 }

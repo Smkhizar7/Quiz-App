@@ -41,9 +41,8 @@ var questions = [
     }
 ]
 var body = document.getElementById('body');
-// var nameDiv = document.getElementById('nameDiv');
 var username = document.getElementById('name');
-username.innerHTML = localStorage.getItem("Email");
+username.innerHTML = localStorage.getItem("Logined User Email");
 var question = document.getElementById('ques');
 var option1 = document.getElementById('option1');
 var option2 = document.getElementById('option2');
@@ -65,22 +64,18 @@ function check() {
     var opt2 = document.getElementById('ans2');
     var opt3 = document.getElementById('ans3');
     var opt4 = document.getElementById('ans4');
-    // console.log(questions[questionCount].ans);
     switch (questions[questionCount].ans) {
         case "ans1":
-            // console.log(opt1.checked);
             if (opt1.checked) {
                 marks++;
             }
             break;
         case "ans2":
-            // console.log(opt2.checked);
             if (opt2.checked) {
                 marks++;
             }
             break;
         case "ans3":
-            // console.log(opt3.checked);
             if (opt3.checked) {
                 marks++;
             }
@@ -92,15 +87,6 @@ function check() {
             break;
     }
 }
-// function start() {
-//     mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
-// }
-// function text() {
-//     // mainbox.setAttribute('class', 'hidden');
-//     // quizbox.setAttribute('class', 'col-6 quiz');
-//     // window.location.href="./quiz.html";
-//     // quiz();
-// }
 function timer() {
     var sec = 00;
     var min = 10;
@@ -116,7 +102,6 @@ function timer() {
         }
         minutes.innerHTML = min;
         seconds.innerHTML = sec;
-        // console.log(min,sec);
     }, 1000);
 }
 function quiz() {
@@ -133,7 +118,7 @@ function submit() {
     check();
     quizbox.setAttribute('class', 'resultBox');
     var greeting;
-    var uName = localStorage.getItem("Email");
+    var uName = localStorage.getItem("Logined User Email");
     localStorage.setItem("Score",marks);
     if (marks >= 3) {
         greeting = "Congratulations ";
@@ -166,52 +151,4 @@ function nextQuestion() {
         }
     }
 }
-// function signup() {
-//     var email = document.getElementById('uemail');
-//     var password = document.getElementById('upassword');
-//     // var cpass = document.getElementById('cpassword').value;
-//     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
-//         .then((userCredential) => {
-//             // Signed in 
-//             var user = userCredential.user;
-//             console.log(user.email);
-//             // ...
-//         })
-//         .catch((error) => {
-//             // var errorCode = error.code;
-//             var errorMessage = error.message;
-//             console.log(errorMessage)
-//             // ..
-//         });
-//     localStorage.setItem("Email",email.value);
-//     localStorage.setItem("Password",password.value);
-//     email.value = "";
-//     password.value = "";
-//     // window.location.href="./start.html";
-//     // mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
-// }
-// function signin(){
-//     var email = document.getElementById('iemail');
-//     var password = document.getElementById('ipassword');
-//     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-//   .then((userCredential) => {
-//     // Signed in
-//     var user = userCredential.user;
-//     console.log(user.email);
-//     localStorage.setItem("Email",email.value);
-//     localStorage.setItem("Password",password.value);
-//     nameDiv.setAttribute('class', 'nameDiv');
-//     username.innerHTML = localStorage.getItem("Email");
-//     // ...
-//   })
-//   .catch((error) => {
-//     // var errorCode = error.code;
-//     var errorMessage = error.message;
-//     console.log(errorMessage)
-//   });
-//     email.value = "";
-//     password.value = "";
-//     mainbox.innerHTML = '<h1>Quiz Application</h1><div class="login" id="login"><button onclick="text()" class="btn-primary btn">Start Quiz</button></div>';
-//     // window.location.href="./start.html";
-// }
 quiz();
